@@ -1,3 +1,4 @@
+import java.util.stream.IntStream;
 
 public class MyMath {
 
@@ -23,6 +24,25 @@ public class MyMath {
 		while ((r + 1) * (r + 1) <= x)
 			r++;
 		return r;
+	}
+	
+	/**
+	 * Returns whether the elements of the given array are in ascending order.
+	 * 
+	 * @throws IllegalArgumentException if `elements` is null
+	 *     | elements == null
+	 * @post For each i between 1 (inclusive) and `elements.length` (exclusive), the element at index
+	 *       i - 1 is not greater than the element at index i.
+	 *     | result == IntStream.range(1, elements.length).allMatch(i -> elements[i - 1] <= elements[i])
+	 */
+	static boolean isSorted(int[] elements) {
+		if (elements == null)
+			throw new IllegalArgumentException("`elements` is null");
+		
+		for (int i = 1; i < elements.length; i++)
+			if (elements[i - 1] > elements[i])
+				return false;
+		return true;
 	}
 
 }
