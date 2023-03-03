@@ -22,5 +22,12 @@ class MyMathTest {
 		assertEquals(false, MyMath.isSorted(elemsNotSorted));
 		assertThrows(IllegalArgumentException.class, () -> MyMath.isSorted(null));
 	}
+	
+	@Test
+	void testNegateElements() {
+		int[] elems = {10, 20, 30};
+		MyMath.negateElements(elems);
+		assertArrayEquals(new int[] {-10, -20, -30}, elems);
+	}
 
 }

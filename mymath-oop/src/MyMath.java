@@ -44,5 +44,16 @@ public class MyMath {
 				return false;
 		return true;
 	}
+	
+	/**
+	 * Replaces each element of the given array by its negation.
+	 * 
+	 * @pre | elements != null
+	 * @post | IntStream.range(0, elements.length).allMatch(i -> elements[i] == -old(elements.clone())[i])
+	 */
+	static void negateElements(int[] elements) {
+		for (int i = 0; i < elements.length; i++)
+			elements[i] = -elements[i];
+	}
 
 }
