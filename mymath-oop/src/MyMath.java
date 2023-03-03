@@ -55,5 +55,39 @@ public class MyMath {
 		for (int i = 0; i < elements.length; i++)
 			elements[i] = -elements[i];
 	}
+	
+	/**
+	 * Inserts the value `v` into the part of the given array between index 0 (inclusive) and n (exclusive).
+	 *
+	 * @pre | array != null
+	 * @pre | 0 <= n
+	 * @pre | n < array.length
+	 * @pre The elements between index 0 (inclusive) and n (exclusive) are in ascending order.
+	 *    | IntStream.range(1, n).allMatch(i -> array[i - 1] <= array[i])
+	 *    
+	 * @post The elements between index 0 (inclusive) and n + 1 (exclusive) are in ascending order.
+	 *    | IntStream.range(1, n + 1).allMatch(i -> array[i - 1] <= array[i])
+	 * @post The elements that existed between index 0 (inclusive) and n (exclusive) are preserved,
+	 *       and v is inserted.
+	 *    | IntStream.range(0, n + 1).allMatch(i ->
+	 *    |     IntStream.range(0, n + 1).filter(j -> array[j] == array[i]).count() ==
+	 *    |     IntStream.range(0, n).filter(j -> old(array.clone())[j] == array[i]).count() +
+	 *    |     (array[i] == v ? 1 : 0)
+	 *    | )
+	 * 
+	 * "C ? A : B" means: "if C then A otherwise B"
+	 */
+	static void insert(int[] array, int n, int v) {
+		// TODO: Implement
+	}
+	
+	/**
+	 * Sorts the given array.
+	 * 
+	 * TODO: Document formally!
+	 */
+	static void insertionSort(int[] array) {
+		// TODO: Implement!
+	}
 
 }
