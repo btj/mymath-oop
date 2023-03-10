@@ -46,5 +46,14 @@ class MyMathTest {
 				new int[] {5, 10, 15, 20, 30, 35},
 				elems);
 	}
+	
+	@Test
+	void testInsertionSort() {
+		int[] elems = {1000, 200, 30, 40, 40};
+		MyMath.insertionSort(elems);
+		assertArrayEquals(new int[] {30, 40, 40, 200, 1000}, elems);
+		
+		assertThrows(IllegalArgumentException.class, () -> MyMath.insertionSort(null));
+	}
 
 }

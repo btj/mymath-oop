@@ -89,10 +89,24 @@ public class MyMath {
 	/**
 	 * Sorts the given array.
 	 * 
-	 * TODO: Document formally! Do it once contractually, and once defensively.
+	 * @throws IllegalArgumentException | array == null
+	 * 
+	 * @post The elements of `array` are in ascending order.
+	 *     | IntStream.range(1, array.length).allMatch(i -> array[i - 1] <= array[i])
+	 * @post No elements are lost from `array`.
+	 *       More specifically, for each element in the array, its number of occurrences in `array` equals
+	 *       its old number of occurrences.
+	 *     | IntStream.range(0, array.length).allMatch(i ->
+	 *     |     IntStream.range(0, array.length).filter(j -> array[j] == array[i]).count() ==
+	 *     |     IntStream.range(0, array.length).filter(j -> old(array.clone())[j] == array[i]).count()
+	 *     | )
 	 */
 	static void insertionSort(int[] array) {
-		// TODO: Implement!
+		if (array == null)
+			throw new IllegalArgumentException("`array` is null");
+		
+		for (int n = 1; n < array.length; n++)
+			insert(array, n, array[n]);
 	}
 
 }
