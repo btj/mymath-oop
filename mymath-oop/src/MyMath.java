@@ -78,13 +78,18 @@ public class MyMath {
 	 * "C ? A : B" means: "if C then A otherwise B"
 	 */
 	static void insert(int[] array, int n, int v) {
-		// TODO: Implement
+		int i = 0;
+		while (i < n && array[i] < v)
+			i++;
+		for (int j = n - 1; i <= j; j--)
+			array[j + 1] = array[j];
+		array[i] = v;
 	}
 	
 	/**
 	 * Sorts the given array.
 	 * 
-	 * TODO: Document formally!
+	 * TODO: Document formally! Do it once contractually, and once defensively.
 	 */
 	static void insertionSort(int[] array) {
 		// TODO: Implement!

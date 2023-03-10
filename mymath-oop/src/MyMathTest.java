@@ -29,5 +29,22 @@ class MyMathTest {
 		MyMath.negateElements(elems);
 		assertArrayEquals(new int[] {-10, -20, -30}, elems);
 	}
+	
+	@Test
+	void testInsert() {
+		int[] elems = {10, 20, 30, 5, 7, 3};
+		MyMath.insert(elems, 3, 15);
+		assertArrayEquals(
+				new int[] {10, 15, 20, 30, 7, 3},
+				elems);
+		MyMath.insert(elems, 4, 35);
+		assertArrayEquals(
+				new int[] {10, 15, 20, 30, 35, 3},
+				elems);
+		MyMath.insert(elems, 5, 5);
+		assertArrayEquals(
+				new int[] {5, 10, 15, 20, 30, 35},
+				elems);
+	}
 
 }
